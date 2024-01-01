@@ -9,10 +9,12 @@ import kotlinx.parcelize.Parcelize
 @Entity
 @Parcelize
 data class Note(
-  @PrimaryKey(autoGenerate = true)val id:Int,
-    @ColumnInfo(name = "note_title") val noteTitle:String,
-  @ColumnInfo(name = "note_descrb") val noteDescrb:String,
 
+  @PrimaryKey(autoGenerate = true)val id:Int,
+
+  @ColumnInfo(name = "note_title") val noteTitle:String,
+
+  @ColumnInfo(name = "note_descrb") val noteDescrb:String,
 
   ):Parcelable{
 
