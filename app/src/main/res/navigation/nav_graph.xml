@@ -9,5 +9,17 @@
         android:id="@+id/noteFragment"
         android:name="com.asimsafar.noteapp.NoteFragment"
         android:label="fragment_note"
-        tools:layout="@layout/fragment_note" />
+        tools:layout="@layout/fragment_note" >
+        <action android:id="@+id/action_fragment_to_add"
+            app:destination="@id/addNoteFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.asimsafar.noteapp.AddNoteFragment"
+        android:label="fragment_add_note"
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/action_add_to_note"
+            app:destination="@+id/noteFragment"/>
+    </fragment>
 </navigation>

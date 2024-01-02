@@ -6,25 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.asimsafar.noteapp.databinding.FragmentNoteBinding
+import com.asimsafar.noteapp.databinding.FragmentAddNoteBinding
 
-class NoteFragment : Fragment() {
-   lateinit var  binding :FragmentNoteBinding
-    fun openAddNotePage(){
-        val action = NoteFragmentDirections.actionFragmentToAdd()
+
+class AddNoteFragment : Fragment() {
+   lateinit var binding:FragmentAddNoteBinding
+
+    fun backToNotePage(){
+        val action =AddNoteFragmentDirections.actionAddToNote()
         findNavController().navigate(action)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       binding = FragmentNoteBinding.inflate(inflater)
-        binding.noteAddButton.setOnClickListener{
-            openAddNotePage()
-        }
 
-        return  binding.root
+        binding =FragmentAddNoteBinding.inflate(inflater)
+        binding.noteToHomePage.setOnClickListener {
+            backToNotePage()
+        }
+        return binding.root
     }
 
 }
