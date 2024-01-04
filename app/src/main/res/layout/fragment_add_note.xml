@@ -58,12 +58,18 @@
         android:id="@+id/noteType"
         android:hint="Note Hint"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+
+        android:background="@drawable/edittext_no_line"
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="120dp" />
 
     <EditText
         android:id="@+id/noteTitle"
+        android:background="@drawable/edittext_no_line"
+        android:hint="Note Hint"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/noteType"
@@ -71,6 +77,11 @@
 
     <EditText
         android:id="@+id/noteDescribe"
+        android:background="@drawable/edittext_no_line"
+        android:hint="Note Hint"
+        android:layout_marginTop="20dp"
+
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
@@ -78,13 +89,7 @@
         tools:layout_editor_absoluteX="7dp" />
 
 
-    <Button
-        android:id="@+id/noteAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Send"
-        app:layout_constraintTop_toBottomOf="@+id/noteDescribe"
-        tools:layout_editor_absoluteX="24dp" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
