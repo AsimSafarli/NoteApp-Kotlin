@@ -7,6 +7,8 @@ import com.asimsafar.noteapp.Module.Note
 
 
 @Database(entities = [Note::class], version = 1)
-abstract class NoteDataBase:RoomDatabase() {
+abstract class AppDatabase:RoomDatabase() {
     abstract  fun noteDao():NoteDao
+    abstract  fun getDatabase():NoteDao
+
 }

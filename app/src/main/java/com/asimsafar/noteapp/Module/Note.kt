@@ -12,6 +12,8 @@ data class Note(
 
   @PrimaryKey(autoGenerate = true)val id:Int,
 
+  @ColumnInfo(name = "note_type") val noteType:String,
+
   @ColumnInfo(name = "note_title") val noteTitle:String,
 
   @ColumnInfo(name = "note_descrb") val noteDescrb:String,

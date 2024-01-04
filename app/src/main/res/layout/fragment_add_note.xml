@@ -2,96 +2,100 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:padding="20dp"
-    tools:context=".AddNoteFragment">
-    <com.google.android.material.appbar.AppBarLayout
+    <data>
+        <variable
+            name="viewModel"
+            type="com.asimsafar.noteapp.AddNoteViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/white"
-        >
-        <com.google.android.material.appbar.MaterialToolbar
+        android:padding="20dp"
+        tools:context=".AddNoteFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarMenu"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            tools:layout_editor_absoluteX="-5dp"
-            tools:layout_editor_absoluteY="-3dp">
+            android:layout_height="wrap_content"
+            android:background="@color/white">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                app:cardBackgroundColor="@color/purple"
-                app:cardCornerRadius="50dp">
+            <com.google.android.material.appbar.MaterialToolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                tools:layout_editor_absoluteX="-5dp"
+                tools:layout_editor_absoluteY="-3dp">
 
-                <ImageView
-                    android:id="@+id/noteToHomePage"
+                <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/purple"
-                    android:padding="10dp"
-                    android:src="@drawable/baseline_arrow_back_ios_new_24" />
-            </androidx.cardview.widget.CardView>
+                    android:layout_gravity="start"
+                    app:cardBackgroundColor="@color/purple"
+                    app:cardCornerRadius="50dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                app:cardBackgroundColor="@color/purple"
-                app:cardCornerRadius="50dp">
+                    <ImageView
+                        android:id="@+id/noteToHomePage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/purple"
+                        android:padding="10dp"
+                        android:src="@drawable/baseline_arrow_back_ios_new_24" />
+                </androidx.cardview.widget.CardView>
 
-                <ImageView
+                <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@color/purple"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_save" />
-            </androidx.cardview.widget.CardView>
+                    android:layout_gravity="end"
+                    app:cardBackgroundColor="@color/purple"
+                    app:cardCornerRadius="50dp">
 
-        </com.google.android.material.appbar.MaterialToolbar>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/purple"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_save" />
+                </androidx.cardview.widget.CardView>
 
-    </com.google.android.material.appbar.AppBarLayout>
+            </com.google.android.material.appbar.MaterialToolbar>
 
-    <EditText
-        android:id="@+id/noteType"
-        android:hint="Note Hint"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="20dp"
+        </com.google.android.material.appbar.AppBarLayout>
 
-        android:background="@drawable/edittext_no_line"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="120dp" />
+        <EditText
+            android:id="@+id/noteType"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/edittext_no_line"
+            android:hint="Note Hint"
+            app:layout_constraintTop_toBottomOf="@+id/appBarMenu"
+            app:layout_constraintBottom_toTopOf="@+id/noteTitle"
+            app:layout_constraintVertical_bias="0.759"
+            />
+        <EditText
+            android:id="@+id/noteTitle"
+            android:layout_width="0dp"
+            android:layout_height="59dp"
+            android:background="@drawable/edittext_no_line"
+            android:hint="Note Title"
+            app:layout_constraintBottom_toTopOf="@+id/noteDescribe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noteType" />
 
-    <EditText
-        android:id="@+id/noteTitle"
-        android:background="@drawable/edittext_no_line"
-        android:hint="Note Hint"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/noteType"
-        tools:layout_editor_absoluteX="46dp" />
+        <EditText
+            android:id="@+id/noteDescribe"
+            android:layout_width="0dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edittext_no_line"
+            android:hint="Note Describe"
+            app:layout_constraintTop_toBottomOf="@+id/noteTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
-    <EditText
-        android:id="@+id/noteDescribe"
-        android:background="@drawable/edittext_no_line"
-        android:hint="Note Hint"
-        android:layout_marginTop="20dp"
-
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        app:layout_constraintTop_toBottomOf="@+id/noteTitle"
-        tools:layout_editor_absoluteX="7dp" />
-
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

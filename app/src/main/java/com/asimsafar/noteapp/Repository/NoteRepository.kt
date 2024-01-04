@@ -10,7 +10,6 @@ class NoteRepository @Inject constructor(private  val noteDao: NoteDao):NoteInte
     suspend fun insert(note: Note){
         noteDao.insert(note)
     }
-
     fun getAllNotes() : LiveData<List<Note>> {
         return noteDao.getAllNotes()
     }
