@@ -3,4 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="background">#3B3B3B</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="purple">#5F5AC9</color>
+    <color name="bottom_color">#F3F3F3</color>
+    <color name="icon_color">#3B3B3B</color>
 </resources>
