@@ -20,7 +20,6 @@ class AddNoteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         binding =FragmentAddNoteBinding.inflate(inflater)
         binding.noteToHomePage.setOnClickListener {
             backToNotePage()
