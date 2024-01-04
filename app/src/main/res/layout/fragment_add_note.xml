@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable
-            name="viewModel"
-            type="com.asimsafar.noteapp.AddNoteViewModel" />
+       <variable
+           name="viewModel"
+           type="com.asimsafar.noteapp.AddNoteViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -27,6 +27,7 @@
                 tools:layout_editor_absoluteY="-3dp">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/noteToHomePage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
@@ -34,7 +35,6 @@
                     app:cardCornerRadius="50dp">
 
                     <ImageView
-                        android:id="@+id/noteToHomePage"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/purple"
@@ -64,7 +64,7 @@
         <EditText
             android:id="@+id/noteType"
             android:layout_width="match_parent"
-            android:layout_height="52dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_no_line"
             android:hint="Note Hint"
             app:layout_constraintTop_toBottomOf="@+id/appBarMenu"
@@ -74,7 +74,7 @@
         <EditText
             android:id="@+id/noteTitle"
             android:layout_width="0dp"
-            android:layout_height="59dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/edittext_no_line"
             android:hint="Note Title"
             app:layout_constraintBottom_toTopOf="@+id/noteDescribe"
@@ -86,7 +86,7 @@
         <EditText
             android:id="@+id/noteDescribe"
             android:layout_width="0dp"
-            android:layout_height="59dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/edittext_no_line"
             android:hint="Note Describe"

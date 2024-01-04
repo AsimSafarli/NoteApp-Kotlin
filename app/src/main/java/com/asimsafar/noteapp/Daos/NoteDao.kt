@@ -9,7 +9,6 @@ import com.asimsafar.noteapp.Module.Note
 
 @Dao
 interface NoteDao {
-  //push
     @Insert
     suspend fun insert(note:Note)
 

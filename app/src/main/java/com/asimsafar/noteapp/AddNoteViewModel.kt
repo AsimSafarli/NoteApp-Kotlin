@@ -1,4 +1,7 @@
+package com.asimsafar.noteapp
+
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.asimsafar.noteapp.Module.Note
@@ -8,15 +11,20 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddNoteViewModel @Inject constructor(private val noteRepository: NoteRepository) : ViewModel() {
+class AddNoteViewModel  @Inject constructor (var noteRepository: NoteRepository) :ViewModel() {
 
     fun getAllNotes(): LiveData<List<Note>> {
         return noteRepository.getAllNotes()
     }
+    fun insert(user: Note) {
+        viewModelScope.launch {
+            noteRepository.insert(user)
+        }
+    }
 
-//    fun insert(note: Note) {
-//        viewModelScope.launch {
-//            noteRepository.insert(note)
-//        }
-//    }
 }
+
+
+
+
+
