@@ -13,12 +13,16 @@ import javax.inject.Inject
 @HiltViewModel
 class AddNoteViewModel  @Inject constructor (var noteRepository: NoteRepository) :ViewModel() {
 
+    var noteDescription: String = ""
+    var noteTitle: String = ""
+    var noteType: String = ""
     fun getAllNotes(): LiveData<List<Note>> {
         return noteRepository.getAllNotes()
     }
-    fun insert(user: Note) {
+    fun insert(noteType: String, noteTitle: String, noteDescription: String) {
+        val noteToInsert = Note(0, noteType, noteTitle, noteDescription)
         viewModelScope.launch {
-            noteRepository.insert(user)
+            noteRepository.insert(noteToInsert)
         }
     }
 

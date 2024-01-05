@@ -22,4 +22,13 @@
             android:id="@+id/action_add_to_note"
             app:destination="@+id/noteFragment"/>
     </fragment>
+    <fragment
+        android:id="@+id/itemNote"
+        android:name="com.asimsafar.noteapp.ItemNote"
+        android:label="item_note"
+        tools:layout="@layout/item_note" >
+        <action
+            android:id="@+id/action_itemNote_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
 </navigation>
