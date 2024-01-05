@@ -1,14 +1,14 @@
 package com.asimsafar.noteapp
-// NoteFragment.kt
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.findNavController
 import com.asimsafar.noteapp.databinding.FragmentNoteBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,18 +18,29 @@ class NoteFragment : Fragment() {
     private val viewModel: NoteViewModel by viewModels()
     private lateinit var noteAdapter: NoteAdapter
 
+    fun openAddNotePage() {
+        val action = NoteFragmentDirections.actionFragmentToAdd()
+        findNavController().navigate(action)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNoteBinding.inflate(inflater, container, false)
+        val listView: ListView = binding.noteRecyclerView
 
         noteAdapter = NoteAdapter(requireContext())
-        binding.noteRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        binding.noteRecyclerView.adapter = noteAdapter
+        listView.adapter = noteAdapter
+
+        binding.noteAddButton.setOnClickListener {
+            openAddNotePage()
+        }
 
         viewModel.getAllNotes().observe(viewLifecycleOwner, Observer { notes ->
-            noteAdapter.submitList(notes)
+            noteAdapter.clear()
+            noteAdapter.addAll(notes)
+            noteAdapter.notifyDataSetChanged()
         })
 
         return binding.root
