@@ -28,7 +28,7 @@ class NoteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNoteBinding.inflate(inflater, container, false)
-        val listView: ListView = binding.noteRecyclerView
+        val listView: ListView = binding.noteRecyclerView //ListView id-i
 
         noteAdapter = NoteAdapter(requireContext())
         listView.adapter = noteAdapter
